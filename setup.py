@@ -220,7 +220,7 @@ setup(
         'markdown-it-py==3.0.0;python_version<"3.10"',
         'markdown-it-py==4.0.0;python_version>="3.10"',
         'mdurl==0.1.2',
-        'rich>=14.3.3,<15',
+        'rich>=13.9.1,<14.0.0',
     ],
     extras_require={
         # pip install -e .[allure]
