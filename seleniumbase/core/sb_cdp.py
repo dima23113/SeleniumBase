@@ -206,6 +206,11 @@ class CDPMethods():
         """Same as get_rd_port(), which returns the remote-debugging port."""
         return self.get_rd_port()
 
+    def get_websocket_url(self):
+        """Returns the websocket URL of the active tab.
+        The websocket URL starts with `ws://`."""
+        return self.get_active_tab().websocket_url
+
     def add_handler(self, event, handler):
         self.page.add_handler(event, handler)
 
@@ -2207,10 +2212,12 @@ class CDPMethods():
         ):
             selector = '[data-callback="onCaptchaSuccess"]'
         elif self.is_element_present(
-            "div:not([class]):not([id]) > div:not([class]):not([id])"
+            "div:not([class]):not([id]):not([aria-label]) > "
+            "div:not([class]):not([id]):not([aria-label])"
         ):
             selector = (
-                "div:not([class]):not([id]) > div:not([class]):not([id])"
+                "div:not([class]):not([id]):not([aria-label]) > "
+                "div:not([class]):not([id]):not([aria-label])"
             )
         else:
             return False
@@ -2303,7 +2310,7 @@ class CDPMethods():
             element_rect = self.get_gui_element_rect(selector, timeout=1)
             e_x = element_rect["x"]
             e_y = element_rect["y"]
-            x_offset = 32
+            x_offset = 28
             y_offset = 32
             if shared_utils.is_windows():
                 y_offset = 28
