@@ -152,7 +152,7 @@ setup(
         'setuptools>=82.0.0;python_version>="3.10"',
         'wheel>=0.46.3',
         'attrs>=25.4.0',
-        'certifi>=2026.2.25',
+        'certifi>=2026.1.4',
         'exceptiongroup>=1.3.1',
         'websockets~=15.0.1;python_version<"3.10"',
         'websockets>=16.0;python_version>="3.10"',
